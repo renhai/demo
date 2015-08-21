@@ -100,11 +100,6 @@
 			<version>18.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>net.ricecode</groupId>
-		    <artifactId>string-similarity</artifactId>
-		    <version>1.0.0</version>
-		</dependency>
-		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>weka-stable</artifactId>
 			<version>3.6.12</version>
