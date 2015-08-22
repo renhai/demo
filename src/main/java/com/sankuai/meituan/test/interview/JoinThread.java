@@ -1,4 +1,4 @@
-package com.sankuai.meituan.test;
+package com.sankuai.meituan.test.interview;
 
 public class JoinThread extends Thread {
 	public static int n = 0;

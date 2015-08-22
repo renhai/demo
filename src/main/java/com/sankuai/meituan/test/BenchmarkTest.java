@@ -15,7 +15,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-public class MainTest {
+public class BenchmarkTest {
 	
 	@Benchmark
 	@OutputTimeUnit(value = TimeUnit.NANOSECONDS)
@@ -59,7 +59,7 @@ public class MainTest {
 		
 
 		Options opt = new OptionsBuilder()
-				.include(MainTest.class.getSimpleName()).forks(1).build();
+				.include(BenchmarkTest.class.getSimpleName()).forks(1).build();
 		new Runner(opt).run();
 
 		

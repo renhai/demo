@@ -21,7 +21,7 @@ public class RetryTest {
 
     public static void main(String[] args) {
         final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(RetryTest.class);
-        final Service1 service1 = applicationContext.getBean(Service1.class);
+        final RetryService service1 = applicationContext.getBean(RetryService.class);
         service1.service();
         applicationContext.close();
     }

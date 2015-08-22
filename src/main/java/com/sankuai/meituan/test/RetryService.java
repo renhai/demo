@@ -7,7 +7,7 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Service1 {
+public class RetryService {
 	@Retryable(value = {RemoteAccessException.class, RuntimeException.class},
             maxAttempts = 3,
             backoff = @Backoff(value = 1000))
