@@ -35,13 +35,8 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>com.jcabi</groupId>
-			<artifactId>jcabi-aspects</artifactId>
-			<version>0.20.1</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.jcabi</groupId> <artifactId>jcabi-aspects</artifactId> 
+			<version>0.20.1</version> </dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -67,13 +62,8 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.7</version>
 		</dependency>
-		<!--  
-		<dependency>
-			<groupId>com.darwinsys</groupId>
-			<artifactId>hirondelle-date4j</artifactId>
-			<version>1.5.1</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.darwinsys</groupId> <artifactId>hirondelle-date4j</artifactId> 
+			<version>1.5.1</version> </dependency> -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -119,70 +109,65 @@
 			<artifactId>selenium-java</artifactId>
 			<version>2.45.0</version>
 		</dependency>
-		<!--  
+		<!-- <dependency> <groupId>com.meituan.cis</groupId> <artifactId>fetch-client</artifactId> 
+			<version>0.0.1</version> </dependency> -->
 		<dependency>
-		 	<groupId>com.meituan.cis</groupId>
-		 	<artifactId>fetch-client</artifactId>
-		 	<version>0.0.1</version>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>2.17</version>
 		</dependency>
-		-->
-<dependency>
-	<groupId>com.codeborne</groupId>
-	<artifactId>selenide</artifactId>
-	<version>2.17</version>
-</dependency>
-<dependency>
-	<groupId>commons-beanutils</groupId>
-	<artifactId>commons-beanutils</artifactId>
-	<version>1.9.2</version>
-</dependency>
-<dependency>
-	<groupId>org.apache.commons</groupId>
-	<artifactId>commons-collections4</artifactId>
-	<version>4.0</version>
-</dependency>
-<!--  
-<dependency>
-	<groupId>net.sourceforge.tess4j</groupId>
-	<artifactId>tess4j</artifactId>
-	<version>2.0.0</version>
-</dependency>
--->
-<dependency>
-	<groupId>com.github.detro.ghostdriver</groupId>
-	<artifactId>phantomjsdriver</artifactId>
-	<version>1.1.0</version>
-</dependency>
-<dependency>
-	<groupId>org.redisson</groupId>
-	<artifactId>redisson</artifactId>
-	<version>1.3.1</version>
-</dependency>
-     <dependency>
-         <groupId>org.openjdk.jmh</groupId>
-         <artifactId>jmh-core</artifactId>
-         <version>${jmh.version}</version>
-     </dependency>
-     <dependency>
-         <groupId>org.openjdk.jmh</groupId>
-         <artifactId>jmh-generator-annprocess</artifactId>
-         <version>${jmh.version}</version>
-         <scope>provided</scope>
-     </dependency>
-<dependency>
-	<groupId>org.springframework.retry</groupId>
-	<artifactId>spring-retry</artifactId>
-	<version>1.1.2.RELEASE</version>
-</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<!-- <dependency> <groupId>net.sourceforge.tess4j</groupId> <artifactId>tess4j</artifactId> 
+			<version>2.0.0</version> </dependency> -->
+		<dependency>
+			<groupId>com.github.detro.ghostdriver</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-core</artifactId>
+			<version>${jmh.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-generator-annprocess</artifactId>
+			<version>${jmh.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+			<version>1.1.2.RELEASE</version>
+		</dependency>
 
-<dependency>
-	<groupId>org.aspectj</groupId>
-	<artifactId>aspectjweaver</artifactId>
-	<version>1.8.6</version>
-</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.6</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.googlecode.concurrentlinkedhashmap</groupId>
+			<artifactId>concurrentlinkedhashmap-lru</artifactId>
+			<version>1.4.2</version>
+		</dependency>
 
 	</dependencies>
-	
-	
+
+
 </project>
