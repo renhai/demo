@@ -10,10 +10,12 @@ public class ListNode {
 	
 	public void print() {
 		ListNode tmp = this;
+		System.out.print("[");
 		while (tmp != null) {
-			System.out.print(tmp.val + "\t");
+			System.out.print(" " + tmp.val + " ");
 			tmp = tmp.next;
 		}
+		System.out.println("]");
 		System.out.println();
 	}
 }

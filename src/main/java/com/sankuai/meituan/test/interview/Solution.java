@@ -19,7 +19,7 @@ public class Solution {
 		}
 		
 		ListNode result = new Solution().reverseList(head);
-		printListNode(result);
+		result.print();
 		
 		int[] arr = new int[] {0,1,2,4,5,7};
 		List<String> list = new Solution().summaryRanges(arr);
@@ -28,6 +28,15 @@ public class Solution {
 		System.out.println(new Solution().toNumber("aab"));
 		
 		System.out.println();
+		
+		ListNode test = new ListNode(1);
+//		test.next = new ListNode(2);
+		ListNode res = new Solution().removeNthFromEnd(test, 1);
+		if (res == null) {
+			System.out.println("[]");
+		} else {
+			res.print();
+		}
 		
 	}
 	
@@ -229,14 +238,28 @@ public class Solution {
     	return n * factorial(n - 1);
     }
     
-    public static void printListNode(ListNode head) {
-    	ListNode tmp = head;
-    	while (tmp != null) {
-    		System.out.print(tmp.val + "\t");
-    		tmp = tmp.next;
+    //Given linked list: 1->2->3->4->5, and n = 2.
+    //After removing the second node from the end, the linked list becomes 1->2->3->5
+    //[1],1
+    //[1,2], 1
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+    	if (head == null) {
+			return null;
 		}
-    	System.out.println();
+    	ListNode prev = new ListNode(0);
+    	prev.next = head;
+        ListNode fast = prev;
+        ListNode slow = prev;
+        for (int i = 0; i < n; i++) {
+        	fast = fast.next;
+		}
+        while (fast.next != null) {
+        	fast = fast.next;
+        	slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return prev.next;
     }
-
+    
 }
 
