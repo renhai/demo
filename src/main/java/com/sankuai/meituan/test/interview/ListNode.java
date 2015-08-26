@@ -16,6 +16,5 @@ public class ListNode {
 			tmp = tmp.next;
 		}
 		System.out.println("]");
-		System.out.println();
 	}
 }
