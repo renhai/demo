@@ -20,11 +20,11 @@ public class RemoveElement {
 
 	}
 	//1211
-	public int removeElement(int[] A, int val) {
-		int len = A.length;
-		for (int i = 0; i < len; ++i) {
-			while (A[i] == val && i < len) {
-				A[i] = A[--len];
+	public int removeElement(int[] nums, int val) {
+		int len = nums.length;
+		for (int i = 0; i < nums.length; i++) {
+			while (nums[i] == val && i < len) {
+				nums[i] = nums[--len];
 			}
 		}
 		return len;
