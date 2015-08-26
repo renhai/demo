@@ -38,6 +38,11 @@ public class Solution {
 			res.print();
 		}
 		
+		System.out.println(new Solution().convert("1"));
+		for (int i = 1; i <= 12; i++) {
+			System.out.println(new Solution().countAndSay(i));
+		}
+		
 	}
 	
     public boolean isPowerOfTwo(int n) {
@@ -259,6 +264,31 @@ public class Solution {
         }
         slow.next = slow.next.next;
         return prev.next;
+    }
+    
+    public String countAndSay(int n) {
+        String str = new String("1");
+        for (int i = 0; i < n - 1; i++) {
+        	str = convert(str);
+		}
+        return str;
+    }
+    
+    private String convert(String str) {
+    	StringBuilder res = new StringBuilder();
+    	char c = str.charAt(0);
+    	int count = 1;
+    	for (int i = 1; i < str.length(); i++) {
+			if (c == str.charAt(i)) {
+				count ++;
+			} else {
+				res.append(count).append(c);
+				c = str.charAt(i);
+				count = 1;
+			}
+		}
+		res.append(count).append(c);
+    	return res.toString();
     }
     
 }
