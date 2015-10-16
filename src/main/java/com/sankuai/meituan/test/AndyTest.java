@@ -1,8 +1,13 @@
 package com.sankuai.meituan.test;
 
-import java.text.DecimalFormat;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 
@@ -35,6 +40,14 @@ public class AndyTest {
 //		}
     	
     	System.out.println(1L << 31);
+    	
+    	try {
+			List<String> lines = FileUtils.readLines(new File("/Users/andy/Downloads/user_id.txt"));
+			System.out.println(StringUtils.join(lines, ","));
+			System.out.println(lines.size());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     	
 	}
 	

@@ -5,49 +5,31 @@ public class FullSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = {1,2,3};
-		do {
-			for (int i = 0; i < arr.length; i++) {
-				System.out.print(arr[i] + "\t");
+		// int[] arr = {1,2,3};
+
+		String[] str = { "a", "b", "c" };
+		permutation(str, 0, str.length - 1);// 输出str[0..2]的所有排列方式
+	}
+
+	public static void permutation(String[] str, int first, int end) {
+		// 输出str[first..end]的所有排列方式
+		if (first == end) { // 输出一个排列方式
+			for (int j = 0; j <= end; j++) {
+				System.out.print(str[j]);
 			}
 			System.out.println();
-		} while (new FullSort().nextPermutation(arr));
+		}
 
+		for (int i = first; i <= end; i++) {
+			swap(str, i, first);
+			permutation(str, first + 1, end); // 固定好当前一位，继续排列后面的
+			swap(str, i, first);
+		}
 	}
 
-	public boolean nextPermutation(int[] arr) {
-		int postLeft = -1;
-		for (int i = arr.length - 1; i > 0; i--) {
-			if (arr[i - 1] < arr[i]) {
-				postLeft = i - 1;
-				break;
-			}
-		}
-		if (postLeft < 0) {
-			return false;
-		}
-
-		int postRight = -1;
-		for (int i = arr.length - 1; i >= postLeft; i--) {
-			if (arr[i] > arr[postLeft]) {
-				postRight = i;
-				break;
-			}
-		}
-		swap(arr, postLeft, postRight);
-		reverse(arr, postLeft + 1, arr.length);
-		return true;
-	}
-
-	public void swap(int[] arr, int ind1, int ind2) {
-		int t = arr[ind1];
-		arr[ind1] = arr[ind2];
-		arr[ind2] = t;
-	}
-
-	public void reverse(int[] arr, int ind1, int ind2) {
-		for (int i = 0; i < (ind2 - ind1) / 2; i++) {
-			swap(arr, ind1 + i, ind2 - 1 - (i));
-		}
+	private static void swap(String[] str, int i, int first) {
+		String tmp = str[first];
+		str[first] = str[i];
+		str[i] = tmp;
 	}
 }
