@@ -2,8 +2,10 @@ package com.sankuai.meituan.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 import org.apache.commons.io.FileUtils;
@@ -49,6 +51,15 @@ public class AndyTest {
 			e.printStackTrace();
 		}
     	
+    	PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder());
+    	queue.offer(1); 
+    	queue.offer(3);
+    	queue.offer(2);
+    	
+    	Integer val = null;
+    	while( (val = queue.poll()) != null) {
+    	    System.out.println(val);
+    	}
 	}
 	
 }
