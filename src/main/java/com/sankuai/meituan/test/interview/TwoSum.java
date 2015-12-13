@@ -17,24 +17,21 @@ public class TwoSum {
 
 	public static void main(String[] args) {
 		int[] nums = new int[]{2, 7, 11, 15};
-		int[] res = new TwoSum().twoSum(nums, 21);
+		int[] res = new TwoSum().twoSum(nums, 3);
 		for (int i : res) {
 			System.out.print(i + "\t");
 		}
 	}
 	
     public int[] twoSum(int[] nums, int target) {
-        int[] idx = new int[2];
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-        	if (map.containsKey(target - nums[i])) {
-				idx[1] = i + 1;
-				idx[0] = map.get(target - nums[i]);
-				return idx;
+    	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    	for (int i = 0; i < nums.length; i++) {
+			if (map.containsKey(target - nums[i])) {
+				return new int[] {map.get(target - nums[i]), i + 1};
 			}
-        	map.put(nums[i], i + 1);
-        }
-        return idx;
+			map.put(nums[i], i + 1);
+		}
+    	throw new IllegalArgumentException("no answer");
     }
 
 }
