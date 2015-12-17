@@ -11,6 +11,8 @@ import java.util.Stack;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import com.sankuai.meituan.test.interview.ListNode;
+
 
 
 public class AndyTest {
@@ -60,6 +62,40 @@ public class AndyTest {
     	while( (val = queue.poll()) != null) {
     	    System.out.println(val);
     	}
+	}
+	
+	private ListNode reverse(ListNode head) {
+		if (head == null) return head;
+		ListNode prev = null;
+		ListNode curr = head;
+		ListNode next = curr.next;
+		while (curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		return prev;
+	}
+	
+	private ListNode reverseII(ListNode head, int m, int n) {
+		ListNode dummy = new ListNode(0);
+		dummy.next = head;
+		
+		ListNode prev = dummy;
+		for (int i = 0; i < m - 1; i++) {
+			prev = prev.next;
+		}
+		ListNode curr = prev.next;
+		ListNode next = curr.next;
+		for (int i = 0; i < n - m; i++) {
+			curr.next = next.next;
+			next.next = prev.next;
+			prev.next = next;
+			next = curr.next;
+		}
+		
+		return dummy.next;
 	}
 	
 }
