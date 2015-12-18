@@ -56,13 +56,15 @@ public class SymmetricTree {
     	}
     }
     
-    private boolean isMirror(TreeNode left, TreeNode right) {
-    	if (left == null && right == null) return true;
-    	if (left == null || right == null) return false;
-    	if (left.val != right.val) {
-    		return false;
-    	} else {
-    		return isMirror(left.left, right.right) && isMirror(left.right, right.left);
-    	}
-      }
+	private boolean isMirror(TreeNode left, TreeNode right) {
+		if (left == null && right == null)
+			return true;
+		if (left == null || right == null)
+			return false;
+		if (left.val != right.val) {
+			return false;
+		} else {
+			return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+		}
+	}
 }
