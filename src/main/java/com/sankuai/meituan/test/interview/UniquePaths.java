@@ -11,6 +11,7 @@ public class UniquePaths {
 
 	}
 	
+	// 排列组合问题 https://leetcode.com/discuss/47829/math-solution-o-1-space
     public int uniquePaths(int m, int n) {
     	if (m == 1 || n == 1) {
     		return 1;
