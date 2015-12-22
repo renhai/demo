@@ -25,9 +25,9 @@ public class BinaryTreeInorderTraversal {
     			stack.push(curr);
     			curr = curr.left;
     		}
-    		curr = stack.pop();
-    		res.add(curr.val);
-    		curr = curr.right;
+    		TreeNode node = stack.pop();
+    		res.add(node.val);
+    		curr = node.right;
     	}
     	return res;
     }
