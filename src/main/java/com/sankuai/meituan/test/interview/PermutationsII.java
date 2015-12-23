@@ -2,7 +2,9 @@ package com.sankuai.meituan.test.interview;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * https://leetcode.com/problems/permutations-ii/
@@ -13,6 +15,29 @@ public class PermutationsII {
 
 	public static void main(String[] args) {
 
+	}
+	
+	public List<List<Integer>> permuteUnique2(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        recursive(nums, res, 0);
+        return res;
+	}
+	
+	private void recursive(int[] nums, List<List<Integer>> res, int start) {
+		if (start == nums.length) {
+			add(res, nums);
+			return;
+		}
+		Set<Integer> set = new HashSet<>();
+		for (int i = start; i < nums.length; i++) {
+			if (!set.contains(nums[i])) {
+				swap(nums, i, start);
+				recursive(nums, res, start + 1);
+				swap(nums, i, start);
+				set.add(nums[i]);
+			}
+		}
 	}
 
     public List<List<Integer>> permuteUnique(int[] nums) {
