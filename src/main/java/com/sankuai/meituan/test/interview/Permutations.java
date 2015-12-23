@@ -14,6 +14,11 @@ public class Permutations {
 
 	}
 	
+	/**
+	 * https://leetcode.com/discuss/17392/my-java-accepted-solution-without-additional-space
+	 * @param nums
+	 * @return
+	 */
     public List<List<Integer>> permute2(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         recursive(nums, res, 0);
