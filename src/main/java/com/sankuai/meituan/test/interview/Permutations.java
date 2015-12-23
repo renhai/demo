@@ -1,6 +1,7 @@
 package com.sankuai.meituan.test.interview;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,8 +12,50 @@ import java.util.List;
 public class Permutations {
 
 	public static void main(String[] args) {
-
+		int[] nums = new int[]{0,1};
+		List<List<Integer>> res = new Permutations().permute3(nums);
+		for (List<Integer> list : res) {
+			System.out.println(list);
+		}
 	}
+	
+    public List<List<Integer>> permute3(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        int len = nums.length;
+        Arrays.sort(nums);
+        add(res, nums);
+        
+        int index;
+        while (true) {
+        	index = len - 1;
+        	while (index > 0) {
+        		if (nums[index - 1] < nums[index]) {
+        			break;
+        		}
+        		index --;
+        	}
+        	if (index == 0) {
+        		break;
+        	} 
+        	for (int i = len - 1; i >= index; i --) {
+        		if (nums[i] > nums[index - 1]) {
+        			swap(nums, i, index - 1);
+        			break;
+        		}
+        	}
+        	reverse(nums, index, len - 1);
+        	add(res, nums);
+        }
+        return res;
+    }
+    
+    private void add(List<List<Integer>> res, int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int num : nums) {
+            list.add(num);
+        }
+        res.add(list);
+    }
 	
 	/**
 	 * https://leetcode.com/discuss/17392/my-java-accepted-solution-without-additional-space
@@ -57,8 +100,8 @@ public class Permutations {
 			}
 			res.add(list);
 		}
-        return res;
         
+        return res;
     }
     
     private void nextPermutation(int[] nums) {
