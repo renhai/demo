@@ -22,7 +22,9 @@ public class DoubanMusicHomePage {
 	private By showMore = By.xpath("//a[@class='j a_show_full']");
 	private By intro = By.xpath("//span[@class='all hidden']");//点击“展开全部”
 	private By intro2 = By.xpath("//div[@id='link-report']/span");//没有“展开全部”button
-	
+	private By tracks = By.xpath("//h2[contains(text(),'曲目')]/following-sibling::div/div");
+	private By tracks2 = By.xpath("//h2[contains(text(),'曲目')]/following-sibling::div/ul/li/div/div/div[contains(@class, 'col song-name-short')]/span");
+//	private By tracks = By.xpath("//h2[contains(text(),'曲目')]/..");
 
 	public void doSearch(String singer, String album) {
 		System.out.println(singer + " " + "<<" + album + ">>");
@@ -52,6 +54,14 @@ public class DoubanMusicHomePage {
 //				System.out.println(introList.get(0).getAttribute("textContent"));
 //				System.out.println(introList.get(0).getAttribute("innerHTML"));
 			}
+		}
+		
+		List<WebElement> trackList = driver.findElements(tracks2);
+		if (trackList.size() == 0) {
+			trackList = driver.findElements(tracks);
+		}
+		for (WebElement ele : trackList) {
+			System.out.println(ele.getAttribute("innerText"));
 		}
 	}
 

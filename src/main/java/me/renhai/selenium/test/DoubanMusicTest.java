@@ -31,6 +31,9 @@ public class DoubanMusicTest {
 		musicPage.doSearch("崔健", "光冻");
 		musicPage.doSearch("高晓松", "青春无悔");
 		musicPage.doSearch("Bob Dylan", "Street Legal");
+		musicPage.doSearch("Norah Jones", "Come Away With Me");
+		musicPage.doSearch("Norah Jones", "Norah Jones And The Handsome Band");
+		musicPage.doSearch("", "Hard Rain - The Songs of Bob Dylan & Leonard Cohen");
 	}
 	
 }
