@@ -1,4 +1,4 @@
-package me.renhai.demo;
+package me.renhai.selenium;
 
 import javax.naming.directory.DirContext;
 

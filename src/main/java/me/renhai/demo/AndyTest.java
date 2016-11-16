@@ -2,10 +2,10 @@ package me.renhai.demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.TreeSet;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class AndyTest {
 
@@ -19,7 +19,32 @@ public class AndyTest {
 		System.out.println(at.firstUniqChar("leetcode"));
 		
 		System.out.println(at.lexicalOrder(346));
+		
+		IntStream.range(1, 100).map(i -> at.fib2(i)).forEach(i -> System.out.println(i));
+		
+		IntStream.range(1, 50).boxed().collect(Collectors.toMap(i -> i, i -> at.fib2(i))).forEach((k, v) -> System.out.println(k + "-->" + v));
 	}
+	
+	public int fib(int n) {
+		if (n == 1) return 1;
+		if (n == 2) return 2;
+		return fib(n - 1) + fib(n - 2);
+	}
+	public int fib2(int n) {
+		if (n < 1) return 0;
+		if (n == 1) return 1;
+		if (n == 2) return 2;
+		int a = 1;
+		int b = 2;
+		int c = a + b;
+		for (int i = 3; i <= n; i ++) {
+			c = a + b;
+			a = b;
+			b = c;
+		}
+		return c;
+	}
+	
     public char findTheDifference(String s, String t) {
         char res = s.charAt(0);
         for (int i = 1; i < s.length(); i ++) {
