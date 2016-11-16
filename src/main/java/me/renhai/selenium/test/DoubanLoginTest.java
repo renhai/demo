@@ -13,8 +13,11 @@ public class DoubanLoginTest {
 	}
 
 	public void testDoubanLogin() {
-		WebDriver driver = BrowserFactory.startBrowser("chrome", "https://www.douban.com/accounts/login");
+		WebDriver driver = BrowserFactory.startBrowser("chrome");
+		driver.get("https://www.douban.com/accounts/login");
 		DoubanLoginPage homePage = PageFactory.initElements(driver, DoubanLoginPage.class);
 		homePage.login("myrenhai@163.com", "67063498hai");
 	}
+	
+	
 }
