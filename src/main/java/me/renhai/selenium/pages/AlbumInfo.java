@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 
 public class AlbumInfo {
+	private String name;
 	private String performer;
 	private String genre;
 	private String releaseTime;
@@ -16,6 +17,12 @@ public class AlbumInfo {
 	
 	private Map<String, String> attrs = new HashMap<>();
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = StringUtils.trimToEmpty(name);
+	}
 	public String getPerformer() {
 		return performer;
 	}
@@ -76,8 +83,9 @@ public class AlbumInfo {
 	}
 	@Override
 	public String toString() {
-		return "AlbumInfo [performer=" + performer + ", genre=" + genre + ", releaseTime=" + releaseTime
-				+ ", publisher=" + publisher + ", cover=" + cover + ", intro=" + intro + ", tracks=" + tracks + "]";
+		return "AlbumInfo [name=" + name + ", performer=" + performer + ", genre=" + genre + ", releaseTime="
+				+ releaseTime + ", publisher=" + publisher + ", cover=" + cover + ", intro=" + intro + ", tracks="
+				+ tracks + "]";
 	}
 	
 	

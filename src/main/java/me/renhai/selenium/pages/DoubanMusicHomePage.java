@@ -22,7 +22,7 @@ public class DoubanMusicHomePage {
 	}
 
 	private By searchInput = By.id("inp-query");
-	private By searchBtn = By.xpath("/html[@class='ua-mac ua-webkit']/body/div[@id='db-nav-music']/div[@class='nav-wrap']/div[@class='nav-primary']/div[@class='nav-search']/form/fieldset/div[@class='inp-btn']/input");
+	private By searchBtn = By.xpath("//div[@class='inp-btn']/input");
 	private By searchResults = By.xpath("//a[@class='nbg' and contains(@href,'subject')]");
 	private By showMore = By.xpath("//a[@class='j a_show_full']");
 	private By intro = By.xpath("//span[@class='all hidden']");//点击“展开全部”
@@ -32,7 +32,7 @@ public class DoubanMusicHomePage {
 //	private By tracks = By.xpath("//h2[contains(text(),'曲目')]/..");
 	
 	private By cover = By.xpath("//span[@class='ckd-collect']/a");
-	
+	private By name = By.xpath("//div[@id='wrapper']/h1/span");
 	private By attrInfo = By.id("info");
 	
 	public AlbumInfo doSearch(String singer, String album) {
@@ -54,7 +54,9 @@ public class DoubanMusicHomePage {
 		if (isElementPresent(cover)) {
 			albumObj.setCover(driver.findElement(cover).getAttribute("href"));
 		}
-		
+		if (isElementPresent(name)) {
+			albumObj.setName(driver.findElement(name).getAttribute("innerText"));
+		}
 		albumObj.setAttrs(driver.findElement(attrInfo).getAttribute("innerText"));
 		albumObj.setIntro(processIntro());;
 		albumObj.setTracks(processTracks());
