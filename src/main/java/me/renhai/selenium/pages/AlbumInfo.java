@@ -14,9 +14,29 @@ public class AlbumInfo {
 	private String cover;
 	private String intro;
 	private String tracks;
+	private AlbumRating rating;
+	private String link;
 	
 	private Map<String, String> attrs = new HashMap<>();
 	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public AlbumRating getRating() {
+		return rating;
+	}
+	public void setRating(AlbumRating rating) {
+		this.rating = rating;
+	}
+	public Map<String, String> getAttrs() {
+		return attrs;
+	}
+	public void setAttrs(Map<String, String> attrs) {
+		this.attrs = attrs;
+	}
 	public String getName() {
 		return name;
 	}
@@ -85,7 +105,7 @@ public class AlbumInfo {
 	public String toString() {
 		return "AlbumInfo [name=" + name + ", performer=" + performer + ", genre=" + genre + ", releaseTime="
 				+ releaseTime + ", publisher=" + publisher + ", cover=" + cover + ", intro=" + intro + ", tracks="
-				+ tracks + "]";
+				+ tracks + ", rating=" + rating + ", link=" + link + "]";
 	}
 	
 	

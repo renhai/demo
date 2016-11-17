@@ -34,6 +34,8 @@ public class DoubanMusicHomePage {
 	private By cover = By.xpath("//span[@class='ckd-collect']/a");
 	private By name = By.xpath("//div[@id='wrapper']/h1/span");
 	private By attrInfo = By.id("info");
+	private By rating = By.xpath("//strong[@class='ll rating_num']");
+	private By ratingSum = By.xpath("//div[@class='rating_sum']/a/span");
 	
 	public AlbumInfo doSearch(String singer, String album) {
 		LOG.info("keyword: " + StringUtils.trimToEmpty(singer + " " + album));
@@ -47,8 +49,9 @@ public class DoubanMusicHomePage {
 			return null;
 		}
 		AlbumInfo albumObj = new AlbumInfo();
-			
-		LOG.info(result.getAttribute("title") + " " + result.getAttribute("href"));
+		String link = result.getAttribute("href");
+		albumObj.setLink(link);
+		LOG.info(result.getAttribute("title") + " " + link);
 		result.click();
 		
 		if (isElementPresent(cover)) {
@@ -58,11 +61,30 @@ public class DoubanMusicHomePage {
 			albumObj.setName(driver.findElement(name).getAttribute("innerText"));
 		}
 		albumObj.setAttrs(driver.findElement(attrInfo).getAttribute("innerText"));
+		albumObj.setRating(processRating());
 		albumObj.setIntro(processIntro());;
 		albumObj.setTracks(processTracks());
 		return albumObj;
 	}
 	
+	private AlbumRating processRating() {
+		double rate = 0.0;
+		int sum = 0;
+		try {
+			if (isElementPresent(rating)) {
+				String rateStr = driver.findElement(rating).getAttribute("innerText");
+				if (StringUtils.isNotBlank(rateStr)) {
+					rate = Double.parseDouble(rateStr);
+				}
+			}
+			if (isElementPresent(ratingSum)) {
+				sum = Integer.parseInt(driver.findElement(ratingSum).getAttribute("innerText"));
+			}
+		} catch (NumberFormatException e) {
+			LOG.error(e.getMessage(), e);
+		}
+		return new AlbumRating(rate, sum);
+	}
 	private String processTracks() {
 		StringBuilder sb = new StringBuilder();
 		List<WebElement> trackList = driver.findElements(tracks2);
