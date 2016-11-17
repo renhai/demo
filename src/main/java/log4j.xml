@@ -10,7 +10,7 @@
 		</layout>
 	</appender>
 	<appender name="logfile" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="logs/andy-test.log" />
+		<param name="File" value="logs/demo.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p (%F:%L) - %m%n" />
 		</layout>

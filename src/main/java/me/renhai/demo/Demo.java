@@ -7,10 +7,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class AndyTest {
+import org.apache.commons.lang3.StringUtils;
+
+public class Demo {
 
 	public static void main(String[] args) {
-		AndyTest at = new AndyTest();
+		Demo at = new Demo();
 		System.out.println(at.strobogrammaticInRange("50", "100"));
 		
 		System.out.println("96".compareTo("50"));
@@ -20,9 +22,11 @@ public class AndyTest {
 		
 		System.out.println(at.lexicalOrder(346));
 		
-		IntStream.range(1, 100).map(i -> at.fib2(i)).forEach(i -> System.out.println(i));
+		System.out.println(StringUtils.trimToEmpty(" abc"));
 		
-		IntStream.range(1, 50).boxed().collect(Collectors.toMap(i -> i, i -> at.fib2(i))).forEach((k, v) -> System.out.println(k + "-->" + v));
+//		IntStream.range(1, 100).map(i -> at.fib2(i)).forEach(i -> System.out.println(i));
+		
+//		IntStream.range(1, 50).boxed().collect(Collectors.toMap(i -> i, i -> at.fib2(i))).forEach((k, v) -> System.out.println(k + "-->" + v));
 	}
 	
 	public int fib(int n) {
