@@ -1,17 +1,21 @@
 package me.renhai.demo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 public class Demo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Demo at = new Demo();
 		System.out.println(at.strobogrammaticInRange("50", "100"));
 		
@@ -24,9 +28,16 @@ public class Demo {
 		
 		System.out.println(StringUtils.trimToEmpty(" abc"));
 		
-//		IntStream.range(1, 100).map(i -> at.fib2(i)).forEach(i -> System.out.println(i));
+//		Document doc = Jsoup.parse(new File("/Users/andy/Downloads/rottentomatoes.com/test.html"), "utf-8");
+//		System.out.println(doc.select("script").first().data());
 		
+//		IntStream.range(1, 100).map(i -> at.fib2(i)).forEach(i -> System.out.println(i));
 //		IntStream.range(1, 50).boxed().collect(Collectors.toMap(i -> i, i -> at.fib2(i))).forEach((k, v) -> System.out.println(k + "-->" + v));
+	
+		String text = FileUtils.readFileToString(new File("/Users/andy/Downloads/rottentomatoes.com/37615e19daf3aed0e89cec5f1668fa3f.json"));
+		JSONObject json = JSONObject.parseObject(text);
+		System.out.println(json.get("link"));
+		System.out.println(json.getJSONObject("script").get("productionCompany"));
 	}
 	
 	public int fib(int n) {
