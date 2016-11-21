@@ -9,7 +9,7 @@ import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.WebResponse;
 
-public class RTSpider {
+public class HtmlUnitDemo {
 
 	public static void main(String[] args) {
 
